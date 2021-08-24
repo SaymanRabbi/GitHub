@@ -1,0 +1,43 @@
+.row{
+    max-width: $grid-width;
+    background-color: $color-grey-dark;
+    margin: 0 auto;
+   
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+    }
+    @include clerfix;
+
+    [class^="col-"]{
+        float: left;
+        background-color: orangered;
+        &:not(:last-child){
+            margin-right: $gutter-horizantal;
+        }
+    }
+    .col-1-of-2{
+        width: calc((100% - #{$gutter-horizantal})/2);
+       
+    }
+   
+    // @include clerfix;
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizantal} )/3);
+        
+    }
+    .col-2-of-3{
+        width: calc(2 *((100% - 2 * #{$gutter-horizantal} )/3) + #{$gutter-horizantal});
+        
+    }
+    
+    .col-1-of-4{
+        width: calc((100% - 3 * #{$gutter-horizantal} )/4);
+    }
+    .col-2-of-4{
+        width: calc( 2*((100% - 3 * #{$gutter-horizantal} )/4) + #{$gutter-horizantal})
+    }
+    .col-3-of-4{
+        width: calc( 3*((100% - 3 * #{$gutter-horizantal} )/4) + 2* #{$gutter-horizantal})
+    }
+      
+}
