@@ -53,6 +53,7 @@
     }
     &:hover &__caption{
         opacity: 1;
+        backface-visibility: hidden;
         transform:  translate(-50%,-50%);
     }
     &:hover &__img{

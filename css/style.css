@@ -268,7 +268,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-.button:link, .button:visited {
+.button, .button:link, .button:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -283,16 +283,20 @@ body {
   -webkit-animation-duration: 2s;
           animation-duration: 2s;
   font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
 }
 
-.button:hover {
+.button:hover,
+.button :focus {
   -webkit-transform: translateY(-0.3rem);
           transform: translateY(-0.3rem);
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
-.button:hover::after {
+.button:hover::after,
+.button :focus::after {
   -webkit-transform: scaleX(1.3) scaleY(1.6);
           transform: scaleX(1.3) scaleY(1.6);
   opacity: 0;
@@ -326,6 +330,38 @@ body {
   z-index: -1;
   -webkit-transition: all .4s;
   transition: all .4s;
+}
+
+.button--green {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  margin-top: 3rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  position: relative;
+  background-color: #55c57a;
+  font-size: 1.6rem;
+  color: #777;
+  border: none;
+  cursor: pointer;
+}
+
+.button--green:hover,
+.button--green :focus {
+  -webkit-transform: translateY(-0.3rem);
+          transform: translateY(-0.3rem);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.button--green:hover::after,
+.button--green :focus::after {
+  -webkit-transform: scaleX(1.3) scaleY(1.6);
+          transform: scaleX(1.3) scaleY(1.6);
+  opacity: 0;
 }
 
 .button-text:link, .button-text:visited {
@@ -655,6 +691,8 @@ body {
 
 .story:hover .story__caption {
   opacity: 1;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
@@ -687,6 +725,109 @@ body {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.form__input {
+  font-size: 1.5rem;
+  padding: 1.5rem 2rem;
+  color: inherit;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.form__input::-webkit-input-placeholder {
+  color: #999;
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid #ff7730;
+}
+
+.form__input:focus {
+  outline: none;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #55c57a;
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+          transform: translateY(-4rem);
+}
+
+.form__radio-input {
+  display: none;
+}
+
+.form__radio-group {
+  width: 49%;
+  display: inline-block;
+}
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 4.5rem;
+}
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -.4rem;
+}
+
+.form__radio-button::after {
+  content: '';
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #55c57a;
+  opacity: 0;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1;
+}
+
+.green {
+  background-color: #55c57a;
 }
 
 .row {
